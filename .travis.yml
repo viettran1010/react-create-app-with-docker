@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t viettran1010/docker-react -f Dockerfile.dev .
+
+script: 
+  - docker run viettran1010/docker-react yarn test -- --coverage --watchAll=false --detectOpenHandles
